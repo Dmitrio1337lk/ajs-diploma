@@ -1,22 +1,8 @@
-import Character from "../Character";
-import Bowman from "../CharacterTypes/Bowman";
+/* eslint-disable no-new */
+import Character from '../Character';
 
-test("new Character()", () => {
+test('class Character should throw error in case of direct request new Character', () => {
   expect(() => {
-    new Character();
-  }).toThrow();
-});
-
-test("new Bowman", () => {
-  const char = new Bowman(2);
-  const expected = {
-    attack: 25,
-    defence: 25,
-    distance: 2,
-    distanceAttack: 2,
-    health: 50,
-    level: 2,
-    type: "bowman",
-  };
-  expect(char).toEqual(expected);
+    new Character(1);
+  }).toThrowError(new Error("it's not allowed to create class Character directly. Use extended classes: Bowman, Swordsman..."));
 });
